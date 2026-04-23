@@ -1445,139 +1445,20 @@
             font-family: var(--font-display);
         }
 
-        /* ── MOBILE RESPONSIVENESS ────────────────────────────── */
-        @media (max-width: 1024px) {
-            .nav-menu {
-                gap: 15px;
-            }
-
-            .hero h1 {
-                font-size: 48px;
+        @media (max-width: 768px) {
+            .tips-grid {
+                grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 768px) {
-            .topbar {
-                display: none;
-            }
-
-            /* Simplify mobile header */
-            .navbar {
-                top: 0;
-                background: #fff;
-                position: sticky;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            }
-
-            .nav-inner {
-                min-height: 80px;
-                padding: 10px 20px;
-            }
-
-            .logo img {
-                height: 60px;
-            }
-
-            /* Scale down logo */
-
-            /* Mobile Menu Button */
-            .menu-toggle {
-                display: block;
-                font-size: 24px;
-                color: var(--blue);
-                cursor: pointer;
-            }
-
-            .nav-menu {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background: #fff;
-                flex-direction: column;
-                align-items: center;
-                padding: 40px 0;
-                transition: 0.3s ease;
-                box-shadow: inset 0 10px 20px rgba(0, 0, 0, 0.05);
-                z-index: 1000;
-            }
-
-            .nav-menu.active {
-                left: 0;
-            }
-
-            .nav-link {
-                color: var(--gray-800);
-                font-size: 18px;
-                width: 100%;
-                text-align: center;
-            }
-
-            /* Hero Mobile */
-            .hero {
-                padding-top: 40px;
-                min-height: auto;
-            }
-
-            .hero-inner {
-                grid-template-columns: 1fr;
-                gap: 30px;
-                text-align: center;
-            }
-
-            .hero h1 {
-                font-size: 36px;
-            }
-
-            .hero-btns {
-                justify-content: center;
-            }
-
-            .hero-img img {
-                max-width: 300px;
-                margin-top: 20px;
-            }
-
-            /* Quick Links Mobile */
-            .quick-links-inner {
-                grid-template-columns: 1fr;
-            }
-
-            /* App Section Mobile */
-            .app-inner {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 40px;
-            }
-
-            .app-badges {
-                justify-content: center;
-            }
-
-            /* Footer Grid */
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                text-align: center;
-            }
-
-            /* Contact Buttons */
-            .contact-buttons {
-                flex-direction: column;
-                width: calc(100% - 40px);
-                left: 20px;
-            }
-
-            .floating-btn {
+            .whatsapp-float {
                 width: 50px;
                 height: 50px;
-                font-size: 22px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 28px;
             }
-        }
-
-        .menu-toggle {
-            display: none;
         }
     </style>
 </head>
@@ -1603,7 +1484,7 @@
                     style="display:none; font-size:22px; font-weight:800; color: #0057A8; font-family:'Playfair Display',serif;">Cyril
                     Ortho Foundation</span>
             </a>
-            <ul class="nav-menu" id="navMenu">
+            <ul class="nav-menu">
                 <li class="nav-item">
                     <a class="nav-link active" href="index.html">Home</a>
                 </li>
@@ -1616,13 +1497,7 @@
                 </li>
                 <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
                 <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                <li class="nav-item"><a class="nav-link nav-cta"
-                        href="https://docs.google.com/forms/d/e/1FAIpQLSd0HlrWv12YT2uSGOnvFrQcfs19ZxNFWs-aTgzjO9y9F5d1mA/viewform?usp=publish-editor">Book
-                        Now</a></li>
             </ul>
-            <div class="menu-toggle" id="menuToggle">
-                <i class="fas fa-bars"></i>
-            </div>
         </div>
     </nav>
 
@@ -1813,7 +1688,7 @@
                         data-bio="Dr. Cyril Jonnes has over 15 years of experience in joint replacements and complex trauma. He is dedicated to restoring mobility and enhancing the quality of life for his patients through advanced surgical techniques."
                         data-accomp="Successfully performed 1000+ joint surgeries; Recipient of Excellence in Orthopedic Surgery Award.">
                         <div class="doctor-img">
-                            <img src="public/doctor_lead_1.png" alt="DR. CYRIL JONNES">
+                            <img src="assets/doctor_lead_1.png" alt="DR. CYRIL JONNES">
                         </div>
                         <div class="doctor-info">
                             <h4>DR. CYRIL JONNES</h4>
@@ -1829,7 +1704,7 @@
                         data-bio="Dr. Iniga Maria Divya is a highly regarded specialist dedicated to holistic psychiatric wellness. She works closely with orthopedic patients to support their mental health during physical recovery or chronic pain management."
                         data-accomp="Recognized for clinical excellence in patient-centered psychiatric care; Lead consultant for health advocacy programs.">
                         <div class="doctor-img">
-                            <img src="public/doctor_lead_2.png" alt="DR. INIGA MARIA DIVYA">
+                            <img src="assets/doctor_lead_2.png" alt="DR. INIGA MARIA DIVYA">
                         </div>
                         <div class="doctor-info">
                             <h4>DR. INIGA MARIA DIVYA</h4>
@@ -1852,7 +1727,7 @@
                         data-bio="Dr. Michael Chen specializes in neuro-muscular disorders and specialized recovery protocols after complex orthopedic procedures."
                         data-accomp="Pioneer in integrated neuro-ortho rehabilitation; Consultant for international sports medical teams.">
                         <div class="doctor-img">
-                            <img src="public/doctor_visit_1.png" alt="Dr. Michael Chen">
+                            <img src="assets/doctor_visit_1.png" alt="Dr. Michael Chen">
                         </div>
                         <div class="doctor-info">
                             <h4>Dr. Michael Chen</h4>
@@ -1867,7 +1742,7 @@
                         data-bio="Dr. Elena focuses on complex autoimmune conditions and systemic joint disorders, providing comprehensive long-term care plans."
                         data-accomp="Published author on inflammatory arthritis; Leading consultant for joint health advocacy.">
                         <div class="doctor-img">
-                            <img src="public/doctor_visit_2.png" alt="Dr. Elena Rodriguez">
+                            <img src="assets/doctor_visit_2.png" alt="Dr. Elena Rodriguez">
                         </div>
                         <div class="doctor-info">
                             <h4>Dr. Elena Rodriguez</h4>
@@ -1882,7 +1757,7 @@
                         data-bio="Dr. David Wilson ensures every diagnosis is backed by precise, advanced imaging, specializing in musculoskeletal radiology."
                         data-accomp="Expert in 3D diagnostic imaging; Consultant for various sports medicine clinics.">
                         <div class="doctor-img">
-                            <img src="public/doctor_visit_3.png" alt="Dr. David Wilson">
+                            <img src="assets/doctor_visit_3.png" alt="Dr. David Wilson">
                         </div>
                         <div class="doctor-info">
                             <h4>Dr. David Wilson</h4>
@@ -2186,34 +2061,6 @@
     </footer>
 
     <script>
-        // Mobile Menu Toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const navMenu = document.getElementById('navMenu');
-
-        if (menuToggle && navMenu) {
-            menuToggle.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-                const icon = menuToggle.querySelector('i');
-                if (navMenu.classList.contains('active')) {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
-                } else {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
-            });
-
-            // Close menu when clicking a link
-            navMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navMenu.classList.remove('active');
-                    const icon = menuToggle.querySelector('i');
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                });
-            });
-        }
-
         const orthoTips = [
             "Sitting long hours causes back stiffness. Take a break every 30 minutes and stretch to keep your spine flexible.",
             "Poor posture leads to chronic back pain. Sit upright with support to maintain proper spinal alignment.",
