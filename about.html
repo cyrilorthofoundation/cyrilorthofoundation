@@ -175,21 +175,24 @@
 
 <body>
     <!-- COPY HEADER FROM index.html -->
-    <nav class="navbar" style="background: #043e49; position: relative; top: 0;">
+    <header>
         <div class="nav-inner">
             <a class="logo" href="index.html">
                 <img src="PNGLOGO.png" alt="Cyril Ortho Foundation">
             </a>
-            <ul class="nav-menu">
-                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-                <li class="nav-item"><a class="nav-link" href="doctors.html">Doctors</a></li>
-                <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
-                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <ul class="nav-menu" id="navMenu">
+                <li><a class="nav-link" href="index.html">Home</a></li>
+                <li><a class="nav-link" href="about.html">About</a></li>
+                <li><a class="nav-link" href="services.html">Services</a></li>
+                <li><a class="nav-link" href="doctors.html">Doctors</a></li>
+                <li><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+                <li><a class="nav-link" href="contact.html">Contact</a></li>
             </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
-    </nav>
+    </header>
 
     <section class="hero-sub">
         <h1>About Cyril Ortho Foundation</h1>
@@ -232,6 +235,24 @@
     <a href="https://WA.me/917200008026" class="float-btn float-wa" target="_blank" title="Chat on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        if (menuToggle && navMenu) {
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                const icon = menuToggle.querySelector('i');
+                if (navMenu.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>
