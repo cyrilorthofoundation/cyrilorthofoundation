@@ -1,0 +1,17 @@
+{
+    "version": 2,
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "redirects": [
+        {
+            "source": "/newhospital.html",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/newhospital.html/index.html",
+            "destination": "/",
+            "permanent": true
+        }
+    ]
+}
