@@ -4,13 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services – Cyril Ortho Foundation</title>
+    <title>Our Services – Cyril Ortho Foundation</title>
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* [COPY STYLES FROM about.html] */
         *,
         *::before,
         *::after {
@@ -21,9 +20,17 @@
 
         :root {
             --blue: #0057A8;
+            --blue-light: #1a6bbf;
+            --blue-dark: #003d7a;
             --teal: #00A99D;
+            --teal-light: #e6f7f6;
             --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-400: #94a3b8;
+            --gray-600: #475569;
             --gray-800: #1e293b;
+            --white: #ffffff;
             --font-body: 'DM Sans', sans-serif;
             --font-display: 'Playfair Display', serif;
         }
@@ -31,7 +38,39 @@
         body {
             font-family: var(--font-body);
             color: var(--gray-800);
+            background: var(--gray-50);
+            line-height: 1.6;
+        }
+
+        /* ── TOPBAR & NAVBAR ───────────────────────────────── */
+        .topbar {
+            background: var(--blue-dark);
+            color: #fff;
+            padding: 10px 0;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .topbar-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+        }
+
+        .topbar a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+
+        .navbar {
             background: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
         }
 
         .nav-inner {
@@ -45,199 +84,301 @@
         }
 
         .logo img {
-            height: 160px;
+            height: 120px;
         }
 
         .nav-menu {
             display: flex;
             gap: 24px;
             align-items: center;
+            list-style: none;
         }
 
         .nav-link {
-            font-size: 12px;
+            text-decoration: none;
+            color: var(--gray-600);
+            font-size: 13px;
             font-weight: 700;
-            color: #fff;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            text-decoration: none;
+            transition: 0.3s;
         }
 
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--blue);
+        }
+
+        .nav-cta {
+            background: var(--teal);
+            color: #fff !important;
+            padding: 12px 24px;
+            border-radius: 8px;
+        }
+
+        /* ── HERO SUB ───────────────────────────────────────── */
         .hero-sub {
-            background: linear-gradient(135deg, #00A99D 0%, #0057A8 100%);
-            padding: 120px 24px 60px;
+            background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 100%);
+            padding: 100px 24px 60px;
             text-align: center;
             color: #fff;
         }
 
+        .hero-sub h1 {
+            font-family: var(--font-display);
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        /* ── SERVICES GRID ─────────────────────────────────── */
         .services-grid {
             padding: 80px 24px;
             max-width: 1280px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
         }
 
         .service-card {
-            border: 1px solid #e2e8f0;
+            background: #fff;
             border-radius: 20px;
-            padding: 40px 30px;
-            text-align: center;
-            transition: all 0.3s ease;
+            padding: 50px 40px;
+            text-align: left;
+            transition: all 0.3s;
+            border: 1px solid var(--gray-200);
+            position: relative;
+            overflow: hidden;
         }
 
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border-color: var(--teal);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
         }
 
         .service-icon {
-            font-size: 40px;
+            width: 70px;
+            height: 70px;
+            background: var(--teal-light);
             color: var(--teal);
-            margin-bottom: 20px;
-        }
-
-        /* ── FLOATING CONTACT BUTTONS ──────────────────────────── */
-        .float-btn {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            right: 40px;
-            color: #FFF;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            z-index: 1000;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s;
-            text-decoration: none;
+            font-size: 32px;
+            margin-bottom: 30px;
         }
 
-        .float-btn:hover {
-            transform: scale(1.1);
-            color: #fff;
+        .service-card h3 {
+            font-family: var(--font-display);
+            font-size: 24px;
+            color: var(--blue);
+            margin-bottom: 15px;
         }
 
-        .float-wa {
-            bottom: 40px;
-            background-color: #25d366;
+        .service-card p {
+            color: var(--gray-600);
+            font-size: 16px;
         }
 
-        .float-call {
-            bottom: 115px;
-            background-color: #00A99D;
-        }
-
-        .float-mail {
-            bottom: 190px;
-            background-color: #0057A8;
-        }
-
-        @media (max-width: 768px) {
-            .float-btn {
-                width: 50px;
-                height: 50px;
-                right: 20px;
-                font-size: 24px;
-            }
-
-            .float-wa {
-                bottom: 20px;
-            }
-
-            .float-call {
-                bottom: 85px;
-            }
-
-            .float-mail {
-                bottom: 150px;
-            }
-        }
-
+        /* ── FOOTER & FLOATING ─────────────────────────────── */
         .footer {
             background: var(--gray-800);
             color: #fff;
-            padding: 40px 24px;
+            padding: 80px 0 0;
+        }
+
+        .footer-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px 60px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-brand img {
+            height: 80px;
+        }
+
+        .footer-bottom {
+            padding: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .contact-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            font-size: 26px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+        }
+
+        .floating-btn:hover {
+            transform: translateY(-5px);
+        }
+
+        .btn-wa {
+            background: #25D366;
+        }
+
+        .btn-phone {
+            background: var(--blue);
+        }
+
+        .btn-email {
+            background: var(--teal);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            color: var(--blue);
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 120px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 120px);
+                background: #fff;
+                flex-direction: column;
+                padding-top: 40px;
+                transition: 0.3s;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
         }
     </style>
 </head>
 
 <body>
-    <nav class="navbar" style="background: #00A99D; position: relative;">
+    <div class="topbar">
+        <div class="topbar-inner">
+            <a href="contact.html">Contact Us</a>
+            <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSd0HlrWv12YT2uSGOnvFrQcfs19ZxNFWs-aTgzjO9y9F5d1mA/viewform?usp=publish-editor">Appointments</a>
+        </div>
+    </div>
+    <nav class="navbar">
         <div class="nav-inner">
-            <a class="logo" href="index.html">
-                <img src="PNGLOGO.png" alt="Cyril Ortho Foundation">
-            </a>
-            <ul class="nav-menu">
-                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
-                <li class="nav-item"><a class="nav-link" href="doctors.html">Doctors</a></li>
-                <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
-                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <a class="logo" href="index.html"><img src="PNGLOGO.png" alt="Cyril Ortho Foundation"></a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a class="nav-link" href="index.html">Home</a></li>
+                <li><a class="nav-link" href="about.html">About</a></li>
+                <li><a class="nav-link active" href="services.html">Services</a></li>
+                <li><a class="nav-link" href="doctors.html">Doctors</a></li>
+                <li><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+                <li><a class="nav-link" href="contact.html">Contact</a></li>
+                <li><a class="nav-link nav-cta"
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSd0HlrWv12YT2uSGOnvFrQcfs19ZxNFWs-aTgzjO9y9F5d1mA/viewform?usp=publish-editor">Book
+                        Now</a></li>
             </ul>
+            <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
         </div>
     </nav>
-
     <section class="hero-sub">
-        <h1>Our Specialized Services</h1>
-        <p>Comprehensive care tailored to your orthopedic needs.</p>
+        <h1>Advanced Orthopedic Services</h1>
+        <p>Combining expertise with cutting-edge technology for your recovery.</p>
     </section>
 
-    <section class="services-grid">
+    <div class="services-grid">
         <div class="service-card">
             <div class="service-icon"><i class="fas fa-bone"></i></div>
             <h3>Joint Replacement</h3>
-            <p>Advanced surgical procedures for hip, knee, and shoulder joints.</p>
+            <p>State-of-the-art hip, knee, and shoulder replacements using minimally invasive techniques for faster
+                recovery.</p>
         </div>
         <div class="service-card">
             <div class="service-icon"><i class="fas fa-running"></i></div>
             <h3>Sports Medicine</h3>
-            <p>Specialized treatment for athletes and sports-related injuries.</p>
+            <p>Specialized treatment for ligament tears, meniscus injuries, and muscle trauma for athletes at all
+                levels.</p>
         </div>
         <div class="service-card">
             <div class="service-icon"><i class="fas fa-child"></i></div>
             <h3>Pediatric Ortho</h3>
-            <p>Caring for the growing bones of children and adolescents.</p>
+            <p>Compassionate care for congenital deformities, bone growth issues, and childhood fractures.</p>
         </div>
         <div class="service-card">
             <div class="service-icon"><i class="fas fa-user-md"></i></div>
             <h3>Spine Care</h3>
-            <p>Comprehensive management of spinal conditions and disorders.</p>
+            <p>Comprehensive management of disc herniations, sciatica, and spinal canal stenosis through conservative
+                and surgical means.</p>
         </div>
         <div class="service-card">
             <div class="service-icon"><i class="fas fa-crutches"></i></div>
             <h3>Trauma Surgery</h3>
-            <p>Expert emergency care for fractures and complex orthopedic trauma.</p>
+            <p>24/7 expert emergency intervention for complex fractures and polytrauma cases.</p>
         </div>
         <div class="service-card">
             <div class="service-icon"><i class="fas fa-accessibility"></i></div>
             <h3>Rehabilitation</h3>
-            <p>Post-surgical therapy to restore strength and function.</p>
+            <p>Personalized physiotherapy programs designed to restore mobility and strength after surgery.</p>
         </div>
-    </section>
+    </div>
 
     <footer class="footer">
-        <div style="color: rgba(255,255,255,0.5); font-size: 13px;">
-            Copyright © 2026 Cyril Ortho Foundation | Designed & Developed by JJ Technologies | Powered by Semesterless
-
+        <div class="footer-inner">
+            <div class="footer-brand"><img src="PNGLOGO.png" alt="Logo">
+                <p>Committed to providing high-quality, compassionate care.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li>Call: 7200008026</li>
+                    <li>WhatsApp Us</li>
+                </ul>
+            </div>
         </div>
+        <div class="footer-bottom">Copyright © 2026 Cyril Ortho Foundation</div>
     </footer>
-    <!-- Floating Action Buttons -->
-    <a href="mailto:cyrilorthofoundation@gmail.com" class="float-btn float-mail" title="Email Us">
-        <i class="fas fa-envelope"></i>
-    </a>
-    <a href="tel:7200008026" class="float-btn float-call" title="Call Us">
-        <i class="fas fa-phone-alt"></i>
-    </a>
-    <a href="https://WA.me/917200008026" class="float-btn float-wa" target="_blank" title="Chat on WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+
+    <div class="contact-buttons">
+        <a href="https://WA.me/917200008026" class="floating-btn btn-wa" target="_blank"><i
+                class="fab fa-whatsapp"></i></a>
+        <a href="tel:7200008026" class="floating-btn btn-phone"><i class="fas fa-phone-alt"></i></a>
+        <a href="mailto:cyrilorthofoundation@gmail.com" class="floating-btn btn-email"><i
+                class="fas fa-envelope"></i></a>
+    </div>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggle.querySelector('i').classList.toggle('fa-bars');
+            menuToggle.querySelector('i').classList.toggle('fa-times');
+        });
+    </script>
 </body>
 
 </html>

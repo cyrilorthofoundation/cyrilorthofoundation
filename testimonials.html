@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testimonials – Cyril Ortho Foundation</title>
+    <title>Patient Stories – Cyril Ortho Foundation</title>
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@500;600;700&display=swap"
         rel="stylesheet">
@@ -20,9 +20,17 @@
 
         :root {
             --blue: #0057A8;
+            --blue-light: #1a6bbf;
+            --blue-dark: #003d7a;
             --teal: #00A99D;
+            --teal-light: #e6f7f6;
             --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-400: #94a3b8;
+            --gray-600: #475569;
             --gray-800: #1e293b;
+            --white: #ffffff;
             --font-body: 'DM Sans', sans-serif;
             --font-display: 'Playfair Display', serif;
         }
@@ -30,16 +38,39 @@
         body {
             font-family: var(--font-body);
             color: var(--gray-800);
-            background: #fff;
+            background: var(--gray-50);
             line-height: 1.6;
         }
 
+        /* ── TOPBAR & NAVBAR ───────────────────────────────── */
+        .topbar {
+            background: var(--blue-dark);
+            color: #fff;
+            padding: 10px 0;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .topbar-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+        }
+
+        .topbar a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+
         .navbar {
-            background: #043e49;
+            background: #fff;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
         }
 
         .nav-inner {
@@ -53,7 +84,7 @@
         }
 
         .logo img {
-            height: 160px;
+            height: 120px;
         }
 
         .nav-menu {
@@ -64,76 +95,81 @@
         }
 
         .nav-link {
-            font-size: 12px;
+            text-decoration: none;
+            color: var(--gray-600);
+            font-size: 13px;
             font-weight: 700;
-            color: #fff;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            text-decoration: none;
-            padding: 8px 0;
-            border-bottom: 2px solid transparent;
-            transition: all 0.3s;
+            transition: 0.3s;
         }
 
         .nav-link:hover,
         .nav-link.active {
-            border-bottom-color: #ccfb3e;
-            color: #ccfb3e;
+            color: var(--blue);
         }
 
+        .nav-cta {
+            background: var(--teal);
+            color: #fff !important;
+            padding: 12px 24px;
+            border-radius: 8px;
+        }
+
+        /* ── HERO SUB ───────────────────────────────────────── */
         .hero-sub {
-            background: linear-gradient(135deg, #043e49 0%, #007675 100%);
-            padding: 140px 24px 80px;
+            background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 100%);
+            padding: 100px 24px 60px;
             text-align: center;
             color: #fff;
         }
 
         .hero-sub h1 {
             font-family: var(--font-display);
-            font-size: 56px;
-            margin-bottom: 16px;
+            font-size: 48px;
+            margin-bottom: 20px;
         }
 
-        .testi-section {
-            padding: 100px 24px;
+        /* ── TESTIMONIALS GRID ─────────────────────────────── */
+        .testi-grid {
+            padding: 80px 24px;
             max-width: 1280px;
             margin: 0 auto;
-        }
-
-        .testi-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 40px;
         }
 
         .testi-card {
-            background: var(--gray-50);
+            background: #fff;
             border-radius: 24px;
             padding: 50px;
-            border: 1px solid #e2e8f0;
             position: relative;
-            transition: all 0.3s;
+            border: 1px solid var(--gray-200);
+            transition: 0.3s;
         }
 
         .testi-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            transform: translateY(-5px);
             border-color: var(--teal);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
         }
 
         .quote-icon {
             position: absolute;
             top: 40px;
             right: 40px;
-            font-size: 40px;
-            color: rgba(0, 169, 157, 0.1);
+            font-size: 48px;
+            color: var(--teal);
+            opacity: 0.1;
         }
 
         .testi-content {
-            font-style: italic;
-            font-size: 20px;
+            font-size: 18px;
             color: var(--gray-600);
+            font-style: italic;
             margin-bottom: 30px;
+            line-height: 1.8;
             position: relative;
             z-index: 1;
         }
@@ -141,203 +177,250 @@
         .testi-author {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
         }
 
         .author-avatar {
             width: 60px;
             height: 60px;
+            background: var(--blue);
+            color: #fff;
             border-radius: 50%;
-            background: var(--teal);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #fff;
             font-weight: 700;
+            font-size: 20px;
         }
 
         .author-info h4 {
             font-family: var(--font-display);
             font-size: 20px;
-            color: var(--gray-800);
+            color: var(--blue);
+            margin-bottom: 4px;
         }
 
         .author-info span {
             font-size: 14px;
             color: var(--teal);
             font-weight: 600;
+            text-transform: uppercase;
         }
 
-        /* ── FLOATING CONTACT BUTTONS ──────────────────────────── */
-        .float-btn {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            right: 40px;
-            color: #FFF;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s;
-            text-decoration: none;
-        }
-
-        .float-btn:hover {
-            transform: scale(1.1);
-            color: #fff;
-        }
-
-        .float-wa {
-            bottom: 40px;
-            background-color: #25d366;
-        }
-
-        .float-call {
-            bottom: 115px;
-            background-color: #00A99D;
-        }
-
-        .float-mail {
-            bottom: 190px;
-            background-color: #0057A8;
-        }
-
-        @media (max-width: 768px) {
-            .float-btn {
-                width: 50px;
-                height: 50px;
-                right: 20px;
-                font-size: 24px;
-            }
-
-            .float-wa {
-                bottom: 20px;
-            }
-
-            .float-call {
-                bottom: 85px;
-            }
-
-            .float-mail {
-                bottom: 150px;
-            }
-        }
-
+        /* ── FOOTER & FLOATING ─────────────────────────────── */
         .footer {
             background: var(--gray-800);
             color: #fff;
-            padding: 60px 24px 30px;
+            padding: 80px 0 0;
+        }
+
+        .footer-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px 60px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-brand img {
+            height: 80px;
+        }
+
+        .footer-bottom {
+            padding: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .contact-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            font-size: 26px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+        }
+
+        .floating-btn:hover {
+            transform: translateY(-5px);
+        }
+
+        .btn-wa {
+            background: #25D366;
+        }
+
+        .btn-phone {
+            background: var(--blue);
+        }
+
+        .btn-email {
+            background: var(--teal);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            color: var(--blue);
+            cursor: pointer;
         }
 
         @media (max-width: 768px) {
-            .testi-grid {
-                grid-template-columns: 1fr;
+            .menu-toggle {
+                display: block;
             }
 
-            .hero-sub h1 {
-                font-size: 40px;
+            .nav-menu {
+                position: fixed;
+                top: 120px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 120px);
+                background: #fff;
+                flex-direction: column;
+                padding-top: 40px;
+                transition: 0.3s;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .testi-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 
 <body>
+    <div class="topbar">
+        <div class="topbar-inner">
+            <a href="contact.html">Contact Us</a>
+            <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSd0HlrWv12YT2uSGOnvFrQcfs19ZxNFWs-aTgzjO9y9F5d1mA/viewform?usp=publish-editor">Appointments</a>
+        </div>
+    </div>
     <nav class="navbar">
         <div class="nav-inner">
-            <a class="logo" href="index.html">
-                <img src="PNGLOGO.png" alt="Cyril Ortho Foundation">
-            </a>
-            <ul class="nav-menu">
-                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-                <li class="nav-item"><a class="nav-link" href="doctors.html">Doctors</a></li>
-                <li class="nav-item"><a class="nav-link active" href="testimonials.html">Testimonials</a></li>
-                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <a class="logo" href="index.html"><img src="PNGLOGO.png" alt="Cyril Ortho Foundation"></a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a class="nav-link" href="index.html">Home</a></li>
+                <li><a class="nav-link" href="about.html">About</a></li>
+                <li><a class="nav-link" href="services.html">Services</a></li>
+                <li><a class="nav-link" href="doctors.html">Doctors</a></li>
+                <li><a class="nav-link active" href="testimonials.html">Testimonials</a></li>
+                <li><a class="nav-link" href="contact.html">Contact</a></li>
+                <li><a class="nav-link nav-cta"
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSd0HlrWv12YT2uSGOnvFrQcfs19ZxNFWs-aTgzjO9y9F5d1mA/viewform?usp=publish-editor">Book
+                        Now</a></li>
             </ul>
+            <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
         </div>
     </nav>
-
     <section class="hero-sub">
         <h1>Voices of Recovery</h1>
-        <p>Discover how we've helped our patients reclaim their mobility and lives.</p>
+        <p>Real stories from patients who reclaimed their active lives with us.</p>
     </section>
 
-    <div class="testi-section">
-        <div class="testi-grid">
-            <div class="testi-card">
-                <i class="fas fa-quote-right quote-icon"></i>
-                <p class="testi-content">"The expertise and compassion at Cyril Ortho Foundation are unmatched. I went
-                    from being unable to walk to running within months. Thank you, Dr. Cyril!"</p>
-                <div class="testi-author">
-                    <div class="author-avatar">SJ</div>
-                    <div class="author-info">
-                        <h4>Sarah Johnson</h4>
-                        <span>Knee Surgery Patient</span>
-                    </div>
+    <div class="testi-grid">
+        <div class="testi-card">
+            <i class="fas fa-quote-right quote-icon"></i>
+            <p class="testi-content">"The expertise and compassion at Cyril Ortho Foundation are unmatched. I went from
+                being unable to walk due to severe arthritis to running back on the field within months. Dr. Cyril is
+                truly a visionary."</p>
+            <div class="testi-author">
+                <div class="author-avatar">SJ</div>
+                <div class="author-info">
+                    <h4>Sarah Johnson</h4><span>Knee Surgery Patient</span>
                 </div>
             </div>
-            <div class="testi-card">
-                <i class="fas fa-quote-right quote-icon"></i>
-                <p class="testi-content">"After years of chronic back pain, I finally found a team that understood my
-                    condition. The personalized treatment plan was a game-changer for me."</p>
-                <div class="testi-author">
-                    <div class="author-avatar">MT</div>
-                    <div class="author-info">
-                        <h4>Michael Thompson</h4>
-                        <span>Spine Care Patient</span>
-                    </div>
+        </div>
+        <div class="testi-card">
+            <i class="fas fa-quote-right quote-icon"></i>
+            <p class="testi-content">"After years of chronic back pain that traditional medicine couldn't solve, I
+                finally found a team that understood my condition. The personalized treatment plan changed everything
+                for me."</p>
+            <div class="testi-author">
+                <div class="author-avatar">MT</div>
+                <div class="author-info">
+                    <h4>Michael Thompson</h4><span>Spine Care Patient</span>
                 </div>
             </div>
-            <div class="testi-card">
-                <i class="fas fa-quote-right quote-icon"></i>
-                <p class="testi-content">"The staff at Cyril Ortho made me feel like family. Their rehabilitation
-                    program is second to none. I highly recommend them to anyone needing ortho care."</p>
-                <div class="testi-author">
-                    <div class="author-avatar">DP</div>
-                    <div class="author-info">
-                        <h4>David Peterson</h4>
-                        <span>Sports Injury Recovery</span>
-                    </div>
+        </div>
+        <div class="testi-card">
+            <i class="fas fa-quote-right quote-icon"></i>
+            <p class="testi-content">"The staff at Cyril Ortho made me feel like family. Their rehabilitation program is
+                second to none, focusing on both physical strength and mental resilience. I highly recommend them."</p>
+            <div class="testi-author">
+                <div class="author-avatar">DP</div>
+                <div class="author-info">
+                    <h4>David Peterson</h4><span>Sports Injury Recovery</span>
                 </div>
             </div>
-            <div class="testi-card">
-                <i class="fas fa-quote-right quote-icon"></i>
-                <p class="testi-content">"I cannot express my gratitude enough. The surgical results were fantastic, and
-                    the post-op follow-up was incredibly thorough and reassuring."</p>
-                <div class="testi-author">
-                    <div class="author-avatar">ER</div>
-                    <div class="author-info">
-                        <h4>Emily Roberts</h4>
-                        <span>Joint Replacement Patient</span>
-                    </div>
+        </div>
+        <div class="testi-card">
+            <i class="fas fa-quote-right quote-icon"></i>
+            <p class="testi-content">"I cannot express my gratitude enough for the joint replacement surgery. The
+                results were immediate, and the post-op follow-up was incredibly thorough and reassuring."</p>
+            <div class="testi-author">
+                <div class="author-avatar">ER</div>
+                <div class="author-info">
+                    <h4>Emily Roberts</h4><span>Joint Replacement Patient</span>
                 </div>
             </div>
         </div>
     </div>
 
     <footer class="footer">
-        <div style="color: rgba(255,255,255,0.5); font-size: 13px;">
-            Copyright © 2026 Cyril Ortho Foundation | Designed & Developed by JJ Technologies | Powered by Semesterless
-
+        <div class="footer-inner">
+            <div class="footer-brand"><img src="PNGLOGO.png" alt="Logo">
+                <p>Committed to providing high-quality, compassionate care.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li>Call: 7200008026</li>
+                    <li>WhatsApp Us</li>
+                </ul>
+            </div>
         </div>
+        <div class="footer-bottom">Copyright © 2026 Cyril Ortho Foundation</div>
     </footer>
-    <!-- Floating Action Buttons -->
-    <a href="mailto:cyrilorthofoundation@gmail.com" class="float-btn float-mail" title="Email Us">
-        <i class="fas fa-envelope"></i>
-    </a>
-    <a href="tel:7200008026" class="float-btn float-call" title="Call Us">
-        <i class="fas fa-phone-alt"></i>
-    </a>
-    <a href="https://WA.me/917200008026" class="float-btn float-wa" target="_blank" title="Chat on WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+
+    <div class="contact-buttons">
+        <a href="https://WA.me/917200008026" class="floating-btn btn-wa" target="_blank"><i
+                class="fab fa-whatsapp"></i></a>
+        <a href="tel:7200008026" class="floating-btn btn-phone"><i class="fas fa-phone-alt"></i></a>
+        <a href="mailto:cyrilorthofoundation@gmail.com" class="floating-btn btn-email"><i
+                class="fas fa-envelope"></i></a>
+    </div>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggle.querySelector('i').classList.toggle('fa-bars');
+            menuToggle.querySelector('i').classList.toggle('fa-times');
+        });
+    </script>
 </body>
 
 </html>
