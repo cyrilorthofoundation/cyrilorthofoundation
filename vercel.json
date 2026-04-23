@@ -1,6 +1,20 @@
 {
-  "version": 2,
-  "name": "cyrilorthofoundation",
-  "cleanUrls": true,
-  "trailingSlash": false
+    "version": 2,
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "framework": null,
+    "builds": [
+        {
+            "src": "**/*.html",
+            "use": "@vercel/static"
+        },
+        {
+            "src": "public/**/*",
+            "use": "@vercel/static"
+        },
+        {
+            "src": "PNGLOGO.png",
+            "use": "@vercel/static"
+        }
+    ]
 }
