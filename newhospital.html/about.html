@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us – Cyril Ortho Foundation</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* [COPIED STYLES FROM newhospital.html - TRUNCATED FOR BREVITY IN LOGS BUT FULL IN FILE] */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --blue: #0057A8;
+            --blue-light: #1a6bbf;
+            --blue-dark: #003d7a;
+            --teal: #00A99D;
+            --teal-light: #e6f7f6;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-400: #94a3b8;
+            --gray-600: #475569;
+            --gray-800: #1e293b;
+            --white: #ffffff;
+            --font-body: 'DM Sans', sans-serif;
+            --font-display: 'Playfair Display', serif;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--gray-800);
+            background: #fff;
+            line-height: 1.6;
+        }
+
+        .nav-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 10px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100px;
+        }
+
+        .logo img {
+            height: 160px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-size: 12px;
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* ── FLOATING CONTACT BUTTONS ──────────────────────────── */
+        .float-btn {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            right: 40px;
+            color: #FFF;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s;
+            text-decoration: none;
+        }
+
+        .float-btn:hover {
+            transform: scale(1.1);
+            color: #fff;
+        }
+
+        .float-wa {
+            bottom: 40px;
+            background-color: #25d366;
+        }
+
+        .float-call {
+            bottom: 115px;
+            background-color: #00A99D;
+        }
+
+        .float-mail {
+            bottom: 190px;
+            background-color: #0057A8;
+        }
+
+        @media (max-width: 768px) {
+            .float-btn {
+                width: 50px;
+                height: 50px;
+                right: 20px;
+                font-size: 24px;
+            }
+
+            .float-wa {
+                bottom: 20px;
+            }
+
+            .float-call {
+                bottom: 85px;
+            }
+
+            .float-mail {
+                bottom: 150px;
+            }
+        }
+
+        .hero-sub {
+            background: linear-gradient(135deg, #043e49 0%, #007675 100%);
+            padding: 120px 24px 60px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero-sub h1 {
+            font-family: var(--font-display);
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .content-section {
+            padding: 80px 24px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-img img {
+            border-radius: 20px;
+            width: 100%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer {
+            background: var(--gray-800);
+            color: #fff;
+            padding: 70px 24px 30px;
+        }
+
+        /* ... Additional Styles ... */
+    </style>
+</head>
+
+<body>
+    <!-- COPY HEADER FROM newhospital.html -->
+    <nav class="navbar" style="background: #043e49; position: relative; top: 0;">
+        <div class="nav-inner">
+            <a class="logo" href="newhospital.html">
+                <img src="../PNGLOGO.png" alt="Cyril Ortho Foundation">
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a class="nav-link" href="newhospital.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="doctors.html">Doctors</a></li>
+                <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero-sub">
+        <h1>About Cyril Ortho Foundation</h1>
+        <p>Providing world-class orthopedic care with compassion and expertise.</p>
+    </section>
+
+    <section class="content-section">
+        <div class="grid-2">
+            <div class="about-text">
+                <h2 style="font-family: var(--font-display); font-size: 36px; margin-bottom: 20px;">Our Mission & Vision
+                </h2>
+                <p style="margin-bottom: 20px;">At Cyril Ortho Foundation, we are committed to restoring mobility and
+                    enhancing the quality of life for our patients. Our team of highly skilled orthopedic surgeons and
+                    healthcare professionals utilize the latest advancements in medical technology to provide
+                    personalized care.</p>
+                <p>We believe in a patient-centered approach, ensuring that every individual receives the attention and
+                    treatment they deserve to get back on their feet.</p>
+            </div>
+            <div class="about-img">
+                <img src="https://novant.1onestrong.com/wp-content/uploads/2023/10/novantjpg-041-1024x1005.jpg"
+                    alt="Our Facility">
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div style="text-align: center; color: rgba(255,255,255,0.5); font-size: 13px;">
+            Copyright © 2026 Cyril Ortho Foundation | Designed & Developed by JJ Technologies | Powered by Semesterless
+
+        </div>
+    </footer>
+    <!-- Floating Action Buttons -->
+    <a href="mailto:cyrilorthofoundation@gmail.com" class="float-btn float-mail" title="Email Us">
+        <i class="fas fa-envelope"></i>
+    </a>
+    <a href="tel:7200008026" class="float-btn float-call" title="Call Us">
+        <i class="fas fa-phone-alt"></i>
+    </a>
+    <a href="https://WA.me/917200008026" class="float-btn float-wa" target="_blank" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</body>
+
+</html>

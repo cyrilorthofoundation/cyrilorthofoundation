@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Doctors – Cyril Ortho Foundation</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ... CORE STYLES ... */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --blue: #0057A8;
+            --teal: #00A99D;
+            --gray-50: #f8fafc;
+            --gray-800: #1e293b;
+            --font-body: 'DM Sans', sans-serif;
+            --font-display: 'Playfair Display', serif;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--gray-800);
+            background: #f8fafc;
+        }
+
+        .nav-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 10px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100px;
+        }
+
+        .logo img {
+            height: 160px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-size: 12px;
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+        }
+
+        .hero-sub {
+            background: #0057A8;
+            padding: 120px 24px 60px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .team-grid {
+            padding: 80px 24px;
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .doctor-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .doctor-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .doctor-img {
+            height: 350px;
+            overflow: hidden;
+        }
+
+        .doctor-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .doctor-info {
+            padding: 24px;
+        }
+
+        .doctor-info h3 {
+            font-family: var(--font-display);
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .doctor-info p {
+            color: var(--teal);
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        /* ... MODAL STYLES ... */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 24px;
+        }
+
+        .modal-content {
+            background: #fff;
+            max-width: 800px;
+            width: 100%;
+            border-radius: 24px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: modalFadeIn 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            color: var(--gray-800);
+            transition: all 0.2s;
+        }
+
+        .modal-close:hover {
+            background: var(--blue);
+            color: #fff;
+        }
+
+        .modal-img {
+            height: 100%;
+            min-height: 450px;
+        }
+
+        .modal-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-body {
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .modal-body h2 {
+            font-family: var(--font-display);
+            font-size: 36px;
+            color: var(--blue);
+        }
+
+        .modal-body .designation {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--teal);
+            font-size: 14px;
+        }
+
+        .modal-info-section h4 {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--gray-400);
+            margin-bottom: 8px;
+        }
+
+        .modal-info-section p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--gray-600);
+        }
+
+        /* ── FLOATING CONTACT BUTTONS ──────────────────────────── */
+        .float-btn {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            right: 40px;
+            color: #FFF;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s;
+            text-decoration: none;
+        }
+
+        .float-btn:hover {
+            transform: scale(1.1);
+            color: #fff;
+        }
+
+        .float-wa {
+            bottom: 40px;
+            background-color: #25d366;
+        }
+
+        .float-call {
+            bottom: 115px;
+            background-color: #00A99D;
+        }
+
+        .float-mail {
+            bottom: 190px;
+            background-color: #0057A8;
+        }
+
+        @media (max-width: 768px) {
+            .float-btn {
+                width: 50px;
+                height: 50px;
+                right: 20px;
+                font-size: 24px;
+            }
+
+            .float-wa {
+                bottom: 20px;
+            }
+
+            .float-call {
+                bottom: 85px;
+            }
+
+            .float-mail {
+                bottom: 150px;
+            }
+        }
+
+        .footer {
+            background: var(--gray-800);
+            color: #fff;
+            padding: 40px 24px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar" style="background: #0057A8; position: relative;">
+        <div class="nav-inner">
+            <a class="logo" href="newhospital.html">
+                <img src="../PNGLOGO.png" alt="Cyril Ortho Foundation">
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a class="nav-link" href="newhospital.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="doctors.html">Doctors</a></li>
+                <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero-sub">
+        <h1>Meet Our Medical Experts</h1>
+        <p>Specialized care from leading orthopedic professionals.</p>
+    </section>
+
+    <div class="team-grid">
+        <div class="doctor-card" data-name="DR. CYRIL JONNES" data-designation="Senior Orthopedic Surgeon"
+            data-edu="MS (Orthopedics), Fellowship in Arthroscopy and Sports Medicine (Ortho One)"
+            data-bio="Dr. Cyril is a veteran in orthopedic surgery with a focus on advanced joint replacements and sports trauma recovery. He has successfully performed thousands of surgeries, helping patients reclaim their active lifestyles."
+            data-accomp="Pioneer in minimally invasive orthopedic procedures; Lead Surgeon at Cyril Ortho Foundation; 15+ years of specialized clinical experience.">
+            <div class="doctor-img"><img src="../public/doctor_lead_1.png" alt="DR. CYRIL JONNES"></div>
+            <div class="doctor-info">
+                <h3>DR. CYRIL JONNES</h3>
+                <p>Senior Orthopedic Surgeon</p>
+            </div>
+        </div>
+        <div class="doctor-card" data-name="DR. INIGA MARIA DIVYA" data-designation="Senior Consultant"
+            data-edu="MBBS, MD (Psychiatry)"
+            data-bio="Dr. Iniga Maria Divya specializes in psychiatric care and mental wellness, bridging the gap between physical recovery and mental health. Her compassionate approach helps patients manage the psychological aspects of chronic pain and recovery."
+            data-accomp="Board-certified Psychiatrist; Expert in trauma-informed care and rehabilitative psychotherapy.">
+            <div class="doctor-img"><img src="../public/doctor_lead_2.png" alt="DR. INIGA MARIA DIVYA"></div>
+            <div class="doctor-info">
+                <h3>DR. INIGA MARIA DIVYA</h3>
+                <p>Senior Consultant</p>
+            </div>
+        </div>
+        <div class="doctor-card" data-name="Dr. Michael Chen" data-designation="Neurologist"
+            data-edu="MD - Neurology, Stanford University"
+            data-bio="Dr. Michael Chen brings a world-class perspective to nervous system health, specializing in neuro-muscular coordination and pain management."
+            data-accomp="Primary investigator in clinical trials for nerve regeneration; Member of the American Academy of Neurology.">
+            <div class="doctor-img"><img src="../public/doctor_visit_1.png" alt="Dr. Michael Chen"></div>
+            <div class="doctor-info">
+                <h3>Dr. Michael Chen</h3>
+                <p>Neurologist</p>
+            </div>
+        </div>
+        <div class="doctor-card" data-name="Dr. Elena Rodriguez" data-designation="Rheumatologist"
+            data-edu="MD, FRCP Specialized in Rheumatology"
+            data-bio="Dr. Elena focuses on complex autoimmune conditions and systemic joint disorders, providing comprehensive long-term care plans."
+            data-accomp="Published author on inflammatory arthritis; Leading consultant for joint health advocacy.">
+            <div class="doctor-img"><img src="../public/doctor_visit_2.png" alt="Dr. Elena Rodriguez"></div>
+            <div class="doctor-info">
+                <h3>Dr. Elena Rodriguez</h3>
+                <p>Rheumatologist</p>
+            </div>
+        </div>
+        <div class="doctor-card" data-name="Dr. David Wilson" data-designation="Radiology Consultant"
+            data-edu="MD Radiology, Board Certified"
+            data-bio="Dr. David Wilson ensures every diagnosis is backed by precise, advanced imaging, specializing in musculoskeletal radiology."
+            data-accomp="Expert in 3D diagnostic imaging; Consultant for various sports medicine clinics.">
+            <div class="doctor-img"><img src="../public/doctor_visit_3.png" alt="Dr. David Wilson"></div>
+            <div class="doctor-info">
+                <h3>Dr. David Wilson</h3>
+                <p>Radiology Consultant</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Structure -->
+    <div class="modal-overlay" id="doctorModal">
+        <div class="modal-content">
+            <div class="modal-close" id="closeModal"><i class="fas fa-times"></i></div>
+            <div class="modal-img">
+                <img id="modalImg" src="" alt="Doctor Image">
+            </div>
+            <div class="modal-body">
+                <div class="modal-header">
+                    <div class="designation" id="modalDesignation">Designation</div>
+                    <h2 id="modalName">Doctor Name</h2>
+                </div>
+                <div class="modal-info-section">
+                    <h4>Qualifications</h4>
+                    <p id="modalEdu">Medical Qualifications</p>
+                </div>
+                <div class="modal-info-section">
+                    <h4>About / Biography</h4>
+                    <p id="modalBio">Biography text goes here.</p>
+                </div>
+                <div class="modal-info-section">
+                    <h4>Key Accomplishments</h4>
+                    <p id="modalAccomp">Accomplishments go here.</p>
+                </div>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSd0HlrWv12YT2uSGOnvFrQcfs19ZxNFWs-aTgzjO9y9F5d1mA/viewform?usp=publish-editor"
+                    class="nav-cta" target="_blank"
+                    style="text-align: center; text-decoration: none; margin-top: auto; background: var(--blue); color: #fff; padding: 16px; border-radius: 8px;">Book
+                    an Appointment</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div style="color: rgba(255,255,255,0.5); font-size: 13px;">
+            Copyright © 2026 Cyril Ortho Foundation | Designed & Developed by JJ Technologies | Powered by Semesterless
+
+        </div>
+    </footer>
+
+    <script>
+        const cards = document.querySelectorAll('.doctor-card');
+        const modal = document.getElementById('doctorModal');
+        const closeModal = document.getElementById('closeModal');
+
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                const name = card.getAttribute('data-name');
+                const designation = card.getAttribute('data-designation');
+                const edu = card.getAttribute('data-edu');
+                const bio = card.getAttribute('data-bio');
+                const accomp = card.getAttribute('data-accomp');
+                const img = card.querySelector('img').src;
+
+                document.getElementById('modalName').textContent = name;
+                document.getElementById('modalDesignation').textContent = designation;
+                document.getElementById('modalEdu').textContent = edu;
+                document.getElementById('modalBio').textContent = bio;
+                document.getElementById('modalAccomp').textContent = accomp;
+                document.getElementById('modalImg').src = img;
+
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden'; // Prevent scroll
+            });
+        });
+
+        const hideModal = () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        };
+
+        closeModal.addEventListener('click', hideModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) hideModal();
+        });
+    </script>
+    <!-- Floating Action Buttons -->
+    <a href="mailto:cyrilorthofoundation@gmail.com" class="float-btn float-mail" title="Email Us">
+        <i class="fas fa-envelope"></i>
+    </a>
+    <a href="tel:7200008026" class="float-btn float-call" title="Call Us">
+        <i class="fas fa-phone-alt"></i>
+    </a>
+    <a href="https://WA.me/917200008026" class="float-btn float-wa" target="_blank" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</body>
+
+</html>

@@ -1,0 +1,2296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyril Ortho Foundation – Hospital and Medical Clinic</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --blue: #0057A8;
+            --blue-light: #1a6bbf;
+            --blue-dark: #003d7a;
+            --teal: #00A99D;
+            --teal-light: #e6f7f6;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-400: #94a3b8;
+            --gray-600: #475569;
+            --gray-800: #1e293b;
+            --white: #ffffff;
+            --font-body: 'DM Sans', sans-serif;
+            --font-display: 'Playfair Display', serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--gray-800);
+            background: #fff;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* ── TOP BAR ─────────────────────────────────────────── */
+        .topbar {
+            background: rgba(0, 0, 0, 0.15);
+            color: #fff;
+            font-size: 13px;
+            padding: 10px 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 200;
+        }
+
+        .topbar-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .topbar-left {
+            display: none;
+        }
+
+        .topbar-right {
+            display: flex;
+            gap: 24px;
+        }
+
+        .topbar-right a {
+            color: #fff;
+            font-weight: 500;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            opacity: 0.8;
+        }
+
+        .topbar-right a::before {
+            content: '';
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #fff;
+            opacity: 0.5;
+        }
+
+        .topbar-right a:hover {
+            opacity: 1;
+        }
+
+        /* ── NAVBAR ──────────────────────────────────────────── */
+        .navbar {
+            background: transparent;
+            box-shadow: none;
+            position: absolute;
+            top: 35px;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .nav-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 10px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100px;
+        }
+
+        .logo img {
+            height: 160px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            padding: 8px 0;
+            font-size: 12px;
+            font-weight: 700;
+            color: #fff;
+            border-radius: 6px;
+            transition: color .2s;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #ccfb3e;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, .12);
+            min-width: 200px;
+            padding: 8px;
+            z-index: 200;
+        }
+
+        .nav-item:hover .dropdown {
+            display: block;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 8px 14px;
+            font-size: 13px;
+            font-weight: 500;
+            border-radius: 6px;
+            color: var(--gray-600);
+        }
+
+        .dropdown a:hover {
+            background: var(--gray-100);
+            color: var(--blue);
+        }
+
+        .nav-cta {
+            background: #ccfb3e !important;
+            color: #000 !important;
+            padding: 12px 30px !important;
+            border-radius: 4px !important;
+            font-weight: 700 !important;
+            font-size: 13px !important;
+            transition: background .2s !important;
+            text-transform: none !important;
+            letter-spacing: 0 !important;
+        }
+
+        .nav-cta:hover {
+            background: #bced2c !important;
+        }
+
+        /* ── HERO ────────────────────────────────────────────── */
+        .hero {
+            background: linear-gradient(139deg, #043e49 0%, #007675 40%, #2bb898 70%, #76deaf 100%);
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 180px;
+            /* Offset for absolute headers */
+        }
+
+        .hero::before {
+            display: none;
+        }
+
+        .hero-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 60px 24px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: none;
+        }
+
+        .hero h1 {
+            font-family: var(--font-body);
+            font-size: clamp(40px, 5vw, 68px);
+            font-weight: 700;
+            line-height: 1.15;
+            color: #fff;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: #fff;
+        }
+
+        .hero-desc {
+            display: none;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero .btn-primary {
+            background: #ccfb3e;
+            color: #000;
+            padding: 18px 36px;
+            border-radius: 2px;
+            font-weight: 500;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background .2s;
+            box-shadow: none;
+        }
+
+        .hero .btn-primary:hover {
+            background: #bced2c;
+        }
+
+        .hero .btn-outline {
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            background: transparent;
+            color: #fff;
+            padding: 17px 36px;
+            border-radius: 2px;
+            font-weight: 500;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all .2s;
+        }
+
+        .hero .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #fff;
+            color: #fff;
+        }
+
+        .btn-primary {
+            background: var(--blue);
+            color: #fff;
+            padding: 14px 30px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background .2s, transform .2s;
+            box-shadow: 0 4px 20px rgba(0, 87, 168, .3);
+        }
+
+        .btn-primary:hover {
+            background: var(--blue-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--blue);
+            color: var(--blue);
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all .2s;
+        }
+
+        .btn-outline:hover {
+            background: var(--blue);
+            color: #fff;
+        }
+
+        .hero-img {
+            position: relative;
+        }
+
+        .hero-img img {
+            width: 100%;
+            max-width: 540px;
+            margin: 0 auto;
+            filter: drop-shadow(0 20px 60px rgba(0, 87, 168, .15));
+        }
+
+        /* ── QUICK LINKS ─────────────────────────────────────── */
+        .quick-links {
+            background: #0d2830;
+            padding: 40px 0;
+        }
+
+        .quick-links-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            padding: 0 24px;
+            gap: 24px;
+        }
+
+        .quick-link {
+            padding: 0 0 0 20px;
+            text-align: left;
+            color: #fff;
+            border-right: none;
+            border-left: 4px solid #ccfb3e;
+            cursor: pointer;
+            transition: opacity .2s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .quick-link:hover {
+            opacity: 0.8;
+        }
+
+        .quick-link .ql-title {
+            font-size: 20px;
+            font-weight: 500;
+            text-transform: none;
+            letter-spacing: 0;
+            margin-bottom: 4px;
+            font-family: var(--font-body);
+        }
+
+        .quick-link .ql-sub {
+            font-size: 13px;
+            opacity: .6;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px 16px;
+            width: 100%;
+            border-radius: 2px;
+            margin-top: 10px;
+        }
+
+        .quick-link .ql-sub::after {
+            content: '\f105';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+        }
+
+        .quick-link i {
+            display: none;
+        }
+
+        /* ── APP SECTION ─────────────────────────────────────── */
+        .app-section {
+            background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 100%);
+            padding: 70px 24px;
+        }
+
+        .app-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .app-text h2 {
+            font-family: var(--font-display);
+            font-size: 40px;
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .app-text p {
+            color: rgba(255, 255, 255, .8);
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .app-badges {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .app-badge {
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .app-badge img {
+            height: 44px;
+            width: auto;
+            display: block;
+        }
+
+        .app-img img {
+            width: 100%;
+            max-width: 420px;
+            margin: 0 auto;
+        }
+
+        /* ── LOGOS ───────────────────────────────────────────── */
+        .logos-section {
+            padding: 40px 24px;
+            background: var(--gray-50);
+            overflow: hidden;
+        }
+
+        .logos-track {
+            display: flex;
+            gap: 50px;
+            animation: marquee 25s linear infinite;
+            width: max-content;
+        }
+
+        .logos-track img {
+            height: 36px;
+            width: auto;
+            filter: grayscale(1);
+            opacity: .5;
+        }
+
+        .logos-track img:hover {
+            opacity: 1;
+            filter: none;
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* ── SECTION HEADER ──────────────────────────────────── */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: 12px;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-display);
+            font-size: clamp(28px, 3.5vw, 42px);
+            font-weight: 700;
+            color: var(--gray-800);
+        }
+
+        /* ── SERVICES ────────────────────────────────────────── */
+        .services {
+            padding: 80px 24px;
+            background: #fff;
+        }
+
+        .services-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .service-card {
+            border: 1px solid var(--gray-200);
+            border-radius: 16px;
+            padding: 30px 24px;
+            text-align: center;
+            cursor: pointer;
+            transition: all .25s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--blue), var(--teal));
+            opacity: 0;
+            transition: opacity .25s;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(0, 87, 168, .2);
+        }
+
+        .service-card:hover .sc-title,
+        .service-card:hover .sc-link {
+            color: #fff;
+        }
+
+        .service-card:hover .sc-icon {
+            filter: brightness(10);
+        }
+
+        .sc-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .sc-icon img {
+            width: 100%;
+        }
+
+        .sc-title {
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--gray-800);
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .sc-link {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--blue);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ── DOCTORS ─────────────────────────────────────────── */
+        .doctors-section {
+            padding: 80px 24px;
+            background: var(--gray-50);
+        }
+
+        .doctors-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .doctors-img {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .doctors-img img {
+            width: 100%;
+            border-radius: 24px;
+        }
+
+        .doctors-text .section-label {
+            text-align: left;
+        }
+
+        .doctors-text h2 {
+            font-family: var(--font-display);
+            font-size: clamp(28px, 3vw, 40px);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .doctors-text p {
+            font-size: 16px;
+            color: var(--gray-600);
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+
+        .stats-row {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-num {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--blue);
+            font-family: var(--font-display);
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--gray-600);
+            font-weight: 500;
+            margin-top: 4px;
+        }
+
+        /* ── TESTIMONIALS ────────────────────────────────────── */
+        .testimonials {
+            padding: 80px 24px;
+            background: #fff;
+        }
+
+        .testimonials-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .test-card {
+            background: var(--gray-50);
+            border-radius: 20px;
+            padding: 32px;
+            border: 1px solid var(--gray-200);
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 20px;
+            align-items: start;
+        }
+
+        .test-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: var(--gray-200);
+        }
+
+        .test-img-placeholder {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--blue), var(--teal));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .test-title {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .test-body {
+            color: var(--gray-600);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .test-stars {
+            color: #f59e0b;
+            font-size: 13px;
+            margin-top: 12px;
+        }
+
+        /* ── WHY CHOOSE ──────────────────────────────────────── */
+        .why-section {
+            padding: 80px 24px;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f7f6 100%);
+        }
+
+        .why-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .why-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 36px 28px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, .06);
+            transition: transform .25s;
+        }
+
+        .why-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .why-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+        }
+
+        .why-icon img {
+            width: 100%;
+        }
+
+        .why-title {
+            font-weight: 700;
+            font-size: 17px;
+            margin-bottom: 10px;
+        }
+
+        .why-desc {
+            font-size: 14px;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* ── NEWS ────────────────────────────────────────────── */
+        .news-section {
+            padding: 80px 24px;
+            background: #fff;
+        }
+
+        .news-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .news-card {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--gray-200);
+            transition: box-shadow .25s, transform .25s;
+        }
+
+        .news-card:hover {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, .1);
+            transform: translateY(-4px);
+        }
+
+        .news-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .news-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .4s;
+        }
+
+        .news-card:hover .news-img img {
+            transform: scale(1.06);
+        }
+
+        .news-body {
+            padding: 22px 20px;
+        }
+
+        .news-date {
+            font-size: 12px;
+            color: var(--gray-400);
+            font-weight: 500;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .news-title {
+            font-weight: 700;
+            font-size: 15px;
+            line-height: 1.5;
+            color: var(--gray-800);
+        }
+
+        /* ── CTA BAND ────────────────────────────────────────── */
+        .cta-band {
+            background: linear-gradient(135deg, var(--blue) 0%, var(--teal) 100%);
+            padding: 70px 24px;
+            text-align: center;
+        }
+
+        .cta-band h2 {
+            font-family: var(--font-display);
+            font-size: clamp(26px, 3.5vw, 40px);
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .cta-band p {
+            color: rgba(255, 255, 255, .85);
+            font-size: 16px;
+            margin-bottom: 36px;
+        }
+
+        .cta-band .btn-white {
+            background: #fff;
+            color: var(--blue);
+            padding: 14px 34px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: box-shadow .2s, transform .2s;
+        }
+
+        .cta-band .btn-white:hover {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, .2);
+            transform: translateY(-2px);
+        }
+
+        /* ── FOOTER ──────────────────────────────────────────── */
+        .footer {
+            background: var(--gray-800);
+            color: #fff;
+            padding: 70px 24px 0;
+        }
+
+        .footer-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            padding-bottom: 50px;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, .6);
+            font-size: 14px;
+            line-height: 1.7;
+            margin: 16px 0 24px;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, .2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            transition: all .2s;
+            color: rgba(255, 255, 255, .7);
+        }
+
+        .social-btn:hover {
+            background: var(--blue);
+            border-color: var(--blue);
+            color: #fff;
+        }
+
+        .footer-col h4 {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, .9);
+        }
+
+        .footer-col ul {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-col ul li a {
+            font-size: 14px;
+            color: rgba(255, 255, 255, .6);
+            transition: color .2s;
+        }
+
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, .1);
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 24px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: rgba(255, 255, 255, .5);
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-bottom-links a {
+            color: rgba(255, 255, 255, .5);
+        }
+
+        .footer-bottom-links a:hover {
+            color: #fff;
+        }
+
+        /* ── RESPONSIVE ──────────────────────────────────────── */
+        @media (max-width: 1024px) {
+            .quick-links-inner {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .topbar-left {
+                display: none;
+            }
+
+            .hero-inner {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-btns {
+                justify-content: center;
+            }
+
+            .hero-img {
+                display: none;
+            }
+
+            .app-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .doctors-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .doctors-img {
+                display: none;
+            }
+
+            .test-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-links-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .stats-row {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+        }
+
+        /* ── MODAL SYSTEM ─────────────────────────────────────── */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(4, 62, 73, 0.95);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 24px;
+            backdrop-filter: blur(8px);
+        }
+
+        .modal-content {
+            background: #fff;
+            max-width: 800px;
+            width: 100%;
+            border-radius: 24px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: modalFadeIn 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            color: var(--gray-800);
+            transition: all 0.2s;
+        }
+
+        .modal-close:hover {
+            background: var(--blue);
+            color: #fff;
+        }
+
+        .modal-img {
+            height: 100%;
+            min-height: 450px;
+        }
+
+        .modal-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-body {
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .modal-body h2 {
+            font-family: var(--font-display);
+            font-size: 36px;
+            color: var(--blue);
+            margin-bottom: 0;
+        }
+
+        .modal-body .designation {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--teal);
+            font-size: 14px;
+        }
+
+        .modal-info-section h4 {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--gray-400);
+            margin-bottom: 8px;
+        }
+
+        .modal-info-section p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--gray-600);
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-img {
+                min-height: 250px;
+            }
+
+            .modal-body {
+                padding: 30px;
+            }
+        }
+
+        .float-btn {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            right: 40px;
+            color: #FFF;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s;
+            text-decoration: none;
+        }
+
+        .float-btn:hover {
+            transform: scale(1.1);
+            color: #fff;
+        }
+
+        .float-wa {
+            bottom: 40px;
+            background-color: #25d366;
+        }
+
+        .float-call {
+            bottom: 115px;
+            background-color: #00A99D;
+        }
+
+        .float-mail {
+            bottom: 190px;
+            background-color: #0057A8;
+        }
+
+        @media (max-width: 768px) {
+            .float-btn {
+                width: 50px;
+                height: 50px;
+                right: 20px;
+                font-size: 24px;
+            }
+
+            .float-wa {
+                bottom: 20px;
+            }
+
+            .float-call {
+                bottom: 85px;
+            }
+
+            .float-mail {
+                bottom: 150px;
+            }
+        }
+
+        /* ── TEAM SECTION ───────────────────────────────────── */
+        .team-section {
+            padding: 80px 0;
+            background: var(--gray-50);
+        }
+
+        .team-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .team-category {
+            margin-bottom: 60px;
+        }
+
+        .team-category h3 {
+            font-family: var(--font-display);
+            font-size: 28px;
+            color: var(--blue);
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--teal);
+            display: inline-block;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .doctor-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .doctor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .doctor-img {
+            height: 320px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .doctor-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .doctor-card:hover .doctor-img img {
+            transform: scale(1.05);
+        }
+
+        .doctor-info {
+            padding: 24px;
+        }
+
+        .doctor-info h4 {
+            font-family: var(--font-display);
+            font-size: 20px;
+            margin-bottom: 8px;
+            color: var(--gray-800);
+        }
+
+        .doctor-info p {
+            color: var(--teal);
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .doctor-cta {
+            padding: 16px 24px;
+            background: var(--gray-50);
+            border-top: 1px solid var(--gray-100);
+        }
+
+        .btn-sm {
+            padding: 10px 20px;
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 6px;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-sm-primary {
+            background: var(--blue);
+            color: #fff;
+        }
+
+        .btn-sm-primary:hover {
+            background: var(--blue-dark);
+        }
+
+        .btn-sm-outline {
+            border: 1px solid var(--blue);
+            color: var(--blue);
+        }
+
+        .daily-tips {
+            padding: 100px 24px;
+            background: linear-gradient(to bottom, #fff, #f4fcfc);
+            text-align: center;
+        }
+
+        .tip-card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            border-top: 5px solid var(--teal);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+            align-items: center;
+        }
+
+        .tip-card:nth-child(2) {
+            border-top-color: var(--blue);
+        }
+
+        .tip-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gray-50);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--teal);
+        }
+
+        .tip-card:nth-child(2) .tip-icon {
+            color: var(--blue);
+        }
+
+        .tip-cat {
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray-400);
+        }
+
+        .tip-text {
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 1.5;
+            color: var(--gray-800);
+            font-family: var(--font-display);
+        }
+
+        @media (max-width: 768px) {
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="topbar">
+        <div class="topbar-inner">
+            <div class="topbar-right">
+                <a href="#">Contact Us</a>
+                <a href="#">Appointments</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a class="logo" href="newhospital.html">
+                <img src="../PNGLOGO.png" alt="Cyril Ortho Foundation"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                <span
+                    style="display:none; font-size:22px; font-weight:800; color: #0057A8; font-family:'Playfair Display',serif;">Cyril
+                    Ortho Foundation</span>
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a class="nav-link active" href="newhospital.html">Home</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="services.html">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="doctors.html">Doctors</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-content">
+                <h1>We provide a huge range of clinical services to people</h1>
+                <div class="hero-btns">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd0HlrWv12YT2uSGOnvFrQcfs19ZxNFWs-aTgzjO9y9F5d1mA/viewform?usp=publish-editor"
+                        class="btn-primary" target="_blank">Request An Appointment</a>
+                    <a href="tel:7200008026" class="btn-outline">Emergency Care</a>
+                </div>
+            </div>
+            <div class="hero-img">
+                <img src="https://novant.1onestrong.com/wp-content/uploads/2023/10/Heros-03.png"
+                    alt="Healthcare Professional">
+            </div>
+        </div>
+    </section>
+
+    <div class="quick-links">
+        <div class="quick-links-inner">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSd0HlrWv12YT2uSGOnvFrQcfs19ZxNFWs-aTgzjO9y9F5d1mA/viewform?usp=publish-editor"
+                class="quick-link" target="_blank">
+                <div class="ql-title">Appointments</div>
+                <div class="ql-sub">Make Appointments</div>
+            </a>
+            <a href="#team" class="quick-link">
+                <div class="ql-title">Find a Doctor</div>
+                <div class="ql-sub">Find Doctors</div>
+            </a>
+        </div>
+    </div>
+
+    <!-- APP SECTION -->
+    <section class="app-section">
+        <div class="app-inner">
+            <div class="app-text">
+                <h2>Healthcare at your fingertips</h2>
+                <p>Manage your health records, schedule appointments, and consult with doctors — all from the
+                    convenience of our mobile app.</p>
+                <div class="app-badges">
+                    <a href="#" class="app-badge"><img
+                            src="https://novant.1onestrong.com/wp-content/uploads/2023/10/appstore.png"
+                            alt="App Store"></a>
+                    <a href="#" class="app-badge"><img
+                            src="https://novant.1onestrong.com/wp-content/uploads/2023/10/googleplay.png"
+                            alt="Google Play"></a>
+                </div>
+            </div>
+            <div class="app-img">
+                <img src="https://novant.1onestrong.com/wp-content/uploads/2023/10/Asset-01-1024x843.png"
+                    alt="Mobile App">
+            </div>
+        </div>
+    </section>
+
+    <!-- LOGOS -->
+    <div class="logos-section">
+        <div class="logos-track" id="logoTrack">
+            <img src="https://novant.1onestrong.com/wp-content/uploads/2023/10/logo-preview-10.png" alt="">
+            <img src="https://novant.1onestrong.com/wp-content/uploads/2023/10/logo-preview-2.png" alt="">
+            <img src="https://novant.1onestrong.com/wp-content/uploads/2023/10/logo-preview-3.png" alt="">
+            <img src="https://novant.1onestrong.com/wp-content/uploads/2023/10/logo-preview-4.png" alt="">
+            <img src="https://novant.1onestrong.com/wp-content/uploads/2023/10/logo-preview-6.png" alt="">
+            <img src="https://novant.1onestrong.com/wp-content/uploads/2023/10/logo-preview-7.png" alt="">
+            <img src="https://novant.1onestrong.com/wp-content/uploads/2023/10/logo-preview-8.png" alt="">
+            <img src="https://novant.1onestrong.com/wp-content/uploads/2023/10/logo-preview-1.png" alt="">
+            <img src="https://novant.1onestrong.com/wp-content/uploads/2023/10/logo-preview-5.png" alt="">
+            <!-- duplicate for seamless loop -->
+            <img src="https://novant.1onestrong.com/wp-content/uploads/2023/10/logo-preview-10.png" alt="">
+            <img src="https://novant.1onestrong.com/wp-content/uploads/2023/10/logo-preview-2.png" alt="">
+            <img src="https://novant.1onestrong.com/wp-content/uploads/2023/10/logo-preview-3.png" alt="">
+            <img src="https://novant.1onestrong.com/wp-content/uploads/2023/10/logo-preview-4.png" alt="">
+            <img src="https://novant.1onestrong.com/wp-content/uploads/2023/10/logo-preview-6.png" alt="">
+            <img src="https://novant.1onestrong.com/wp-content/uploads/2023/10/logo-preview-7.png" alt="">
+            <img src="https://novant.1onestrong.com/wp-content/uploads/2023/10/logo-preview-8.png" alt="">
+            <img src="https://novant.1onestrong.com/wp-content/uploads/2023/10/logo-preview-1.png" alt="">
+            <img src="https://novant.1onestrong.com/wp-content/uploads/2023/10/logo-preview-5.png" alt="">
+        </div>
+    </div>
+
+    <!-- SERVICES -->
+    <section class="services">
+        <div class="services-inner">
+            <div class="section-header">
+                <span class="section-label">Treatments & Services</span>
+                <h2>Centers of Excellence</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="sc-icon"><img
+                            src="https://novant.1onestrong.com/wp-content/uploads/2023/10/Asset-08.png" alt="Cancer">
+                    </div>
+                    <div class="sc-title">Cancer</div>
+                    <div class="sc-link">Learn More <i class="fas fa-arrow-right"></i></div>
+                </div>
+                <div class="service-card">
+                    <div class="sc-icon"><img
+                            src="https://novant.1onestrong.com/wp-content/uploads/2023/10/Asset-09.png" alt="Heart">
+                    </div>
+                    <div class="sc-title">Heart</div>
+                    <div class="sc-link">Learn More <i class="fas fa-arrow-right"></i></div>
+                </div>
+                <div class="service-card">
+                    <div class="sc-icon"><img
+                            src="https://novant.1onestrong.com/wp-content/uploads/2023/10/Asset-010.png" alt="Surgery">
+                    </div>
+                    <div class="sc-title">Surgery</div>
+                    <div class="sc-link">Learn More <i class="fas fa-arrow-right"></i></div>
+                </div>
+                <div class="service-card">
+                    <div class="sc-icon"><img
+                            src="https://novant.1onestrong.com/wp-content/uploads/2023/10/Asset-012.png"
+                            alt="Radiology"></div>
+                    <div class="sc-title">Radiology</div>
+                    <div class="sc-link">Learn More <i class="fas fa-arrow-right"></i></div>
+                </div>
+                <div class="service-card">
+                    <div class="sc-icon"><img
+                            src="https://novant.1onestrong.com/wp-content/uploads/2023/10/Asset-014.png"
+                            alt="Neurology"></div>
+                    <div class="sc-title">Neurology</div>
+                    <div class="sc-link">Learn More <i class="fas fa-arrow-right"></i></div>
+                </div>
+                <div class="service-card">
+                    <div class="sc-icon"><img
+                            src="https://novant.1onestrong.com/wp-content/uploads/2023/10/Asset-015.png"
+                            alt="Primary Care"></div>
+                    <div class="sc-title">Primary Care</div>
+                    <div class="sc-link">Learn More <i class="fas fa-arrow-right"></i></div>
+                </div>
+                <div class="service-card">
+                    <div class="sc-icon"><img
+                            src="https://novant.1onestrong.com/wp-content/uploads/2023/10/Asset-017.png" alt="COVID 19">
+                    </div>
+                    <div class="sc-title">COVID 19</div>
+                    <div class="sc-link">Learn More <i class="fas fa-arrow-right"></i></div>
+                </div>
+                <div class="service-card">
+                    <div class="sc-icon"><img
+                            src="https://novant.1onestrong.com/wp-content/uploads/2023/10/Asset-016.png"
+                            alt="Orthopedics"></div>
+                    <div class="sc-title">Orthopedics</div>
+                    <div class="sc-link">Learn More <i class="fas fa-arrow-right"></i></div>
+                </div>
+            </div>
+    </section>
+    <!-- DAILY TIPS -->
+    <section class="daily-tips">
+        <div class="tips-inner">
+            <div class="section-header">
+                <span class="section-label">Health Awareness</span>
+                <h2>Daily Wellness Guide</h2>
+            </div>
+            <div class="tips-grid">
+                <!-- Orthopedic Tip -->
+                <div class="tip-card" id="orthoTipCard">
+                    <div class="tip-cat">Orthopedic Advice</div>
+                    <div class="tip-icon"><i class="fas fa-bone"></i></div>
+                    <div class="tip-text" id="orthoTipText">Loading today tips...</div>
+                </div>
+                <!-- Psychiatry Tip -->
+                <div class="tip-card" id="psyTipCard">
+                    <div class="tip-cat">Mental Wellness</div>
+                    <div class="tip-icon"><i class="fas fa-brain"></i></div>
+                    <div class="tip-text" id="psyTipText">Loading today tips...</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM SECTION -->
+    <section class="team-section" id="team">
+        <div class="team-inner">
+            <div class="section-header">
+                <span class="section-label">Medical Experts</span>
+                <h2>Meet Our Specialists</h2>
+            </div>
+
+            <!-- Lead Specialists -->
+            <div class="team-category">
+                <h3>Lead Specialists</h3>
+                <div class="team-grid">
+                    <div class="doctor-card" data-name="DR. CYRIL JONNES" data-designation="Senior Orthopedic Surgeon"
+                        data-edu="Consultant Orthopedic Surgeon, MBBS, MS (Ortho)"
+                        data-bio="Dr. Cyril Jonnes has over 15 years of experience in joint replacements and complex trauma. He is dedicated to restoring mobility and enhancing the quality of life for his patients through advanced surgical techniques."
+                        data-accomp="Successfully performed 1000+ joint surgeries; Recipient of Excellence in Orthopedic Surgery Award.">
+                        <div class="doctor-img">
+                            <img src="../public/doctor_lead_1.png" alt="DR. CYRIL JONNES">
+                        </div>
+                        <div class="doctor-info">
+                            <h4>DR. CYRIL JONNES</h4>
+                            <p>Senior Orthopedic Surgeon</p>
+                        </div>
+                        <div class="doctor-cta">
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSd0HlrWv12YT2uSGOnvFrQcfs19ZxNFWs-aTgzjO9y9F5d1mA/viewform?usp=publish-editor"
+                                class="btn-sm btn-sm-primary" target="_blank">Book Appointment</a>
+                        </div>
+                    </div>
+                    <div class="doctor-card" data-name="DR. INIGA MARIA DIVYA" data-designation="Senior Consultant"
+                        data-edu="MBBS, MD (Psychiatry), Senior Specialist"
+                        data-bio="Dr. Iniga Maria Divya is a highly regarded specialist dedicated to holistic psychiatric wellness. She works closely with orthopedic patients to support their mental health during physical recovery or chronic pain management."
+                        data-accomp="Recognized for clinical excellence in patient-centered psychiatric care; Lead consultant for health advocacy programs.">
+                        <div class="doctor-img">
+                            <img src="../public/doctor_lead_2.png" alt="DR. INIGA MARIA DIVYA">
+                        </div>
+                        <div class="doctor-info">
+                            <h4>DR. INIGA MARIA DIVYA</h4>
+                            <p>Senior Consultant</p>
+                        </div>
+                        <div class="doctor-cta">
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSd0HlrWv12YT2uSGOnvFrQcfs19ZxNFWs-aTgzjO9y9F5d1mA/viewform?usp=publish-editor"
+                                class="btn-sm btn-sm-primary" target="_blank">Book Appointment</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visiting Doctors -->
+            <div class="team-category">
+                <h3>Visiting Consultants</h3>
+                <div class="team-grid">
+                    <div class="doctor-card" data-name="Dr. Michael Chen" data-designation="Neurologist"
+                        data-edu="MD, Board Certified Neurologist"
+                        data-bio="Dr. Michael Chen specializes in neuro-muscular disorders and specialized recovery protocols after complex orthopedic procedures."
+                        data-accomp="Pioneer in integrated neuro-ortho rehabilitation; Consultant for international sports medical teams.">
+                        <div class="doctor-img">
+                            <img src="../public/doctor_visit_1.png" alt="Dr. Michael Chen">
+                        </div>
+                        <div class="doctor-info">
+                            <h4>Dr. Michael Chen</h4>
+                            <p>Neurologist</p>
+                        </div>
+                        <div class="doctor-cta">
+                            <a href="#" class="btn-sm btn-sm-outline">View Details</a>
+                        </div>
+                    </div>
+                    <div class="doctor-card" data-name="Dr. Elena Rodriguez" data-designation="Rheumatologist"
+                        data-edu="MD, FRCP Specialized in Rheumatology"
+                        data-bio="Dr. Elena focuses on complex autoimmune conditions and systemic joint disorders, providing comprehensive long-term care plans."
+                        data-accomp="Published author on inflammatory arthritis; Leading consultant for joint health advocacy.">
+                        <div class="doctor-img">
+                            <img src="../public/doctor_visit_2.png" alt="Dr. Elena Rodriguez">
+                        </div>
+                        <div class="doctor-info">
+                            <h4>Dr. Elena Rodriguez</h4>
+                            <p>Rheumatologist</p>
+                        </div>
+                        <div class="doctor-cta">
+                            <a href="#" class="btn-sm btn-sm-outline">View Details</a>
+                        </div>
+                    </div>
+                    <div class="doctor-card" data-name="Dr. David Wilson" data-designation="Radiology Consultant"
+                        data-edu="MD Radiology, Board Certified"
+                        data-bio="Dr. David Wilson ensures every diagnosis is backed by precise, advanced imaging, specializing in musculoskeletal radiology."
+                        data-accomp="Expert in 3D diagnostic imaging; Consultant for various sports medicine clinics.">
+                        <div class="doctor-img">
+                            <img src="../public/doctor_visit_3.png" alt="Dr. David Wilson">
+                        </div>
+                        <div class="doctor-info">
+                            <h4>Dr. David Wilson</h4>
+                            <p>Radiology Consultant</p>
+                        </div>
+                        <div class="doctor-cta">
+                            <a href="#" class="btn-sm btn-sm-outline">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOCTORS -->
+    <section class="doctors-section">
+        <div class="doctors-inner">
+            <div class="doctors-img">
+                <img src="https://novant.1onestrong.com/wp-content/uploads/2023/10/novantjpg-041-1024x1005.jpg"
+                    alt="Doctor">
+            </div>
+            <div class="doctors-text">
+                <span class="section-label">Our Specialists</span>
+                <h2>Our doctors specialize in you</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec
+                    ullamcorper
+                    mattis, pulvinar dapibus leo. We put our patients at the center of everything we do.</p>
+                <a href="#" class="btn-primary" style="display:inline-flex">
+                    <i class="fas fa-search"></i> Choose by Specialty
+                </a>
+                <div class="stats-row">
+                    <div class="stat">
+                        <div class="stat-num" id="stat1">0</div>
+                        <div>M+</div>
+                        <div class="stat-label">Patients cared for</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-num" id="stat2">0</div>
+                        <div>K</div>
+                        <div class="stat-label">Hospital beds</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-num" id="stat3">0</div>
+                        <div>K+</div>
+                        <div class="stat-label">Health professionals</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials">
+        <div class="testimonials-inner">
+            <div class="section-header">
+                <span class="section-label">Testimonial our patient</span>
+                <h2>Our teams welcome the toughest cases</h2>
+            </div>
+            <div class="test-grid">
+                <div class="test-card">
+                    <div class="test-img-placeholder">C</div>
+                    <div>
+                        <div class="test-title">Challenging what's possible</div>
+                        <div class="test-body">Our medical team approaches every case with determination and
+                            innovation.
+                            We believe no challenge is too great when patient lives are at stake.</div>
+                        <div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="test-card">
+                    <div class="test-img-placeholder">T</div>
+                    <div>
+                        <div class="test-title">Transplant gives patient a second chance</div>
+                        <div class="test-body">After years of searching, our specialist team performed a
+                            groundbreaking
+                            procedure that gave this patient a renewed lease on life.</div>
+                        <div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="test-card">
+                    <div class="test-img-placeholder">L</div>
+                    <div>
+                        <div class="test-title">Living liver transplant brings hope</div>
+                        <div class="test-body">A remarkable story of family, courage, and cutting-edge medicine
+                            — our
+                            surgeons successfully completed a living donor liver transplant.</div>
+                        <div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="test-card">
+                    <div class="test-img-placeholder">S</div>
+                    <div>
+                        <div class="test-title">A second opinion saves a life</div>
+                        <div class="test-body">When other hospitals gave up hope, our diagnostic team identified
+                            a rare
+                            condition and crafted a treatment plan that saved this patient's life.</div>
+                        <div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align:center; margin-top:36px">
+                <a href="#" class="btn-outline">More Patient Stories <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE -->
+    <section class="why-section">
+        <div class="why-inner">
+            <div class="section-header">
+                <span class="section-label">Why Choose Us</span>
+                <h2>Why Choose Cyril Ortho Foundation Clinic?</h2>
+            </div>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon"><img
+                            src="https://novant.1onestrong.com/wp-content/uploads/2023/10/Asset-030.png"
+                            alt="Patient-centered"></div>
+                    <div class="why-title">Patient-centered care</div>
+                    <div class="why-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod tempor
+                        incididunt.</div>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><img
+                            src="https://novant.1onestrong.com/wp-content/uploads/2023/10/Asset-033.png"
+                            alt="Best Hospital"></div>
+                    <div class="why-title">Best Hospital</div>
+                    <div class="why-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod tempor
+                        incididunt.</div>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><img
+                            src="https://novant.1onestrong.com/wp-content/uploads/2023/10/Asset-032.png"
+                            alt="Collaborative"></div>
+                    <div class="why-title">Collaborative Providers</div>
+                    <div class="why-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod tempor
+                        incididunt.</div>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><img
+                            src="https://novant.1onestrong.com/wp-content/uploads/2023/10/Asset-031.png"
+                            alt="Innovation"></div>
+                    <div class="why-title">Innovation & Research</div>
+                    <div class="why-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod tempor
+                        incididunt.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWS -->
+    <section class="news-section">
+        <div class="news-inner">
+            <div class="section-header">
+                <span class="section-label">Latest Updates</span>
+                <h2>Breakthroughs and Breaking News</h2>
+            </div>
+            <div class="news-grid">
+                <a href="#" class="news-card">
+                    <div class="news-img"><img src="https://novant.1onestrong.com/wp-content/uploads/2023/10/Blog-1.jpg"
+                            alt="News 1"></div>
+                    <div class="news-body">
+                        <div class="news-date"><i class="fas fa-calendar-alt"></i> October 21, 2023</div>
+                        <div class="news-title">Nurses recognised for excellence</div>
+                    </div>
+                </a>
+                <a href="#" class="news-card">
+                    <div class="news-img"><img src="https://novant.1onestrong.com/wp-content/uploads/2023/10/Blog-2.jpg"
+                            alt="News 2"></div>
+                    <div class="news-body">
+                        <div class="news-date"><i class="fas fa-calendar-alt"></i> October 21, 2023</div>
+                        <div class="news-title">Leading trauma research and care</div>
+                    </div>
+                </a>
+                <a href="#" class="news-card">
+                    <div class="news-img"><img src="https://novant.1onestrong.com/wp-content/uploads/2023/10/Blog-3.jpg"
+                            alt="News 3"></div>
+                    <div class="news-body">
+                        <div class="news-date"><i class="fas fa-calendar-alt"></i> October 21, 2023</div>
+                        <div class="news-title">Improving nutrition in hip fracture patients</div>
+                    </div>
+                </a>
+                <a href="#" class="news-card">
+                    <div class="news-img"><img src="https://novant.1onestrong.com/wp-content/uploads/2023/10/Blog-6.jpg"
+                            alt="News 4"></div>
+                    <div class="news-body">
+                        <div class="news-date"><i class="fas fa-calendar-alt"></i> October 21, 2023</div>
+                        <div class="news-title">Foot disease – the silent patient burden</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BAND -->
+    <section class="cta-band">
+        <h2>We're always here to help. Contact us today.</h2>
+        <p>Connect with a customer care specialist Monday to Friday, 7 am – 7 pm (PST).</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd0HlrWv12YT2uSGOnvFrQcfs19ZxNFWs-aTgzjO9y9F5d1mA/viewform?usp=publish-editor"
+            class="btn-white" target="_blank"><i class="fas fa-calendar-alt"></i> Request an Appointment</a>
+    </section>
+
+    <!-- FOOTER -->
+    <!-- MAPS SECTION -->
+    <section class="maps-section" style="padding: 80px 0 0 0;">
+        <div class="section-header">
+            <span class="section-label">Our Location</span>
+            <h2>Find Us Here</h2>
+        </div>
+        <div class="map-container"
+            style="width: 100%; height: 450px; overflow: hidden; border-radius: 0; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3894.839658271471!2d78.21379337442109!3d12.526779124475903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bac350046bfaf67%3A0xd638320bdf059d9!2sCYRIL%20ORTHO%20FOUNDATION!5e0!3m2!1sen!2sin!4v1776594049288!5m2!1sen!2sin"
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <img src="../PNGLOGO.png" alt="Cyril Ortho Foundation" style="height:120px;"
+                    onerror="this.style.display='none'">
+                <p>Committed to providing high-quality, compassionate care to every patient we serve. Our
+                    world-class
+                    specialists are here for you.</p>
+                <div>
+                    <div
+                        style="font-size:13px; color:rgba(255,255,255,.6); margin-bottom:10px; display:flex; align-items:center; gap:8px;">
+                        <i class="fas fa-map-marker-alt"></i> Jl. Soekarno-hatta
+                    </div>
+                </div>
+                <div class="footer-socials">
+                    <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>About Us</h4>
+                <ul>
+                    <li><a href="#">Corporate Profile</a></li>
+                    <li><a href="#">Clinical Outcomes</a></li>
+                    <li><a href="#">Locations</a></li>
+                    <li><a href="#">Media Requests</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Patient Care</h4>
+                <ul>
+                    <li><a href="#">Patient Education</a></li>
+                    <li><a href="#">Specialties & Services</a></li>
+                    <li><a href="#">Your Clinic Visit</a></li>
+                    <li><a href="#">Your Hospital Stay</a></li>
+                    <li><a href="#">Visitor Information</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Research</h4>
+                <ul>
+                    <li><a href="#">Laboratories</a></li>
+                    <li><a href="#">Research Faculty</a></li>
+                    <li><a href="#">Health Research</a></li>
+                    <li><a href="#">Partners</a></li>
+                </ul>
+                <h4 style="margin-top:24px">Careers</h4>
+                <ul>
+                    <li><a href="#">Overview</a></li>
+                    <li><a href="#">Why Choose Us</a></li>
+                    <li><a href="#">Career Choices</a></li>
+                    <li><a href="#">Sponsorships</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>Copyright © 2026 Cyril Ortho Foundation | Designed & Developed by JJ Technologies | Powered by
+                Semesterless</span>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Practices</a>
+                <a href="#">Disclaimer</a>
+                <a href="#">Accessibility</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">Sitemap</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const orthoTips = [
+            "Sitting long hours causes back stiffness. Take a break every 30 minutes and stretch to keep your spine flexible.",
+            "Poor posture leads to chronic back pain. Sit upright with support to maintain proper spinal alignment.",
+            "Weak core muscles strain the spine. Do core exercises to support your back and prevent injury.",
+            "Lack of movement causes joint stiffness. Walk daily to maintain joint mobility and circulation.",
+            "Tight muscles increase injury risk. Stretch regularly to improve flexibility and reduce strain.",
+            "Sudden workouts cause injuries. Always warm up before exercising to prepare your muscles.",
+            "Skipping cool down leads to soreness. Stretch after workouts to relax muscles and recover faster.",
+            "Excess weight stresses joints. Maintain a healthy weight to reduce pressure on knees and hips.",
+            "Weak leg muscles affect knee stability. Strengthen your legs to support and protect your knees.",
+            "Improper lifting causes back injuries. Bend your knees and keep your back straight while lifting.",
+            "Looking down at phones strains the neck. Keep devices at eye level to prevent neck pain.",
+            "Poor sleeping posture causes pain. Use a proper pillow to support your neck and spine.",
+            "Soft mattresses affect spinal alignment. Use a firm mattress for better back support.",
+            "Wearing high heels stresses joints. Choose comfortable footwear to protect knees and ankles.",
+            "Ignoring minor pain worsens injuries. Seek early care to prevent serious problems.",
+            "Dehydration affects joint lubrication. Drink enough water to keep joints healthy.",
+            "Calcium deficiency weakens bones. Include dairy or calcium-rich foods in your diet.",
+            "Lack of sunlight reduces vitamin D. Get daily sunlight exposure for bone strength.",
+            "Poor diet slows recovery. Eat balanced meals with protein and nutrients.",
+            "Overuse of joints causes strain. Take rest when needed to allow healing.",
+            "Sudden twisting can injure the spine. Move slowly and avoid jerky movements.",
+            "Long standing causes leg fatigue. Shift positions and rest to reduce strain.",
+            "Weak shoulders lead to pain. Do shoulder exercises to improve stability.",
+            "Poor ankle strength affects balance. Practice ankle exercises to prevent falls.",
+            "Lack of flexibility causes stiffness. Include stretching in your daily routine.",
+            "Sitting on soft sofas harms posture. Use firm seating for better support.",
+            "Carrying heavy bags unevenly strains muscles. Use both shoulders or reduce weight.",
+            "Repetitive strain causes injury. Take breaks during repetitive tasks.",
+            "Ignoring swelling delays healing. Use ice to reduce inflammation early.",
+            "Muscle stiffness limits movement. Apply heat therapy to relax muscles.",
+            "Lack of activity weakens bones. Stay active to maintain bone density.",
+            "Smoking weakens bone health. Avoid smoking to protect your skeleton.",
+            "Poor balance increases fall risk. Practice balance exercises regularly.",
+            "Wrong workout form causes injury. Learn correct techniques before exercising.",
+            "Sudden heavy lifting strains muscles. Increase load gradually to avoid damage.",
+            "Weak grip affects arm strength. Do simple hand exercises to improve grip.",
+            "Improper desk setup causes strain. Adjust chair and screen height correctly.",
+            "Sleeping in wrong positions causes stiffness. Maintain neutral spine alignment.",
+            "Ignoring doctor advice delays recovery. Follow prescribed treatments properly.",
+            "Lack of rest delays healing. Ensure proper sleep for recovery.",
+            "Joint overuse leads to chronic pain. Alternate activities to reduce strain.",
+            "Poor footwear causes foot pain. Wear shoes with proper support and cushioning.",
+            "Sudden sports activity causes injury. Train gradually and consistently.",
+            "Lack of stretching before sports increases risk. Warm up properly.",
+            "Weak hips affect posture. Strengthen hip muscles for better stability.",
+            "Long screen time affects posture. Take breaks and adjust sitting position.",
+            "Ignoring body signals causes damage. Listen to pain and act early.",
+            "Cold environments increase stiffness. Keep your body warm to stay flexible.",
+            "Poor recovery habits worsen injuries. Follow proper rehab exercises.",
+            "Inconsistent care leads to problems. Maintain daily habits for long-term joint health."
+        ];
+
+        const psyTips = [
+            "Constant stress affects mental clarity. Practice deep breathing daily to calm your mind.",
+            "Lack of sleep worsens anxiety. Maintain a proper sleep schedule for mental stability.",
+            "Overthinking creates stress. Focus on present tasks to reduce mental load.",
+            "Negative thoughts affect mood. Replace them with positive and realistic thinking.",
+            "Lack of routine causes confusion. Follow a daily routine for better control.",
+            "Excess screen time increases anxiety. Limit usage and take regular breaks.",
+            "Bottling emotions increases stress. Express your feelings to someone you trust.",
+            "Isolation affects mental health. Stay connected with family and friends.",
+            "Multitasking overwhelms the brain. Focus on one task at a time.",
+            "Lack of relaxation causes burnout. Take short breaks to refresh your mind.",
+            "Anxiety increases with uncertainty. Plan your day to feel more in control.",
+            "Poor breathing habits increase stress. Practice slow breathing exercises.",
+            "Lack of mindfulness leads to distraction. Stay present to reduce anxiety.",
+            "Comparing yourself causes dissatisfaction. Focus on your own progress.",
+            "Ignoring emotions leads to buildup. Acknowledge and manage your feelings.",
+            "Negative environments affect mood. Surround yourself with positive influences.",
+            "Lack of gratitude reduces happiness. Practice gratitude daily.",
+            "Overworking causes burnout. Maintain work-life balance.",
+            "Fear of failure limits growth. Accept mistakes as learning opportunities.",
+            "Lack of hobbies increases stress. Engage in activities you enjoy.",
+            "Poor time management causes anxiety. Organize your tasks effectively.",
+            "Lack of self-care affects mental health. Take time for yourself daily.",
+            "Excess caffeine increases anxiety. Limit intake for better calmness.",
+            "Avoiding problems increases stress. Face issues step by step.",
+            "Lack of support increases loneliness. Build a strong support system.",
+            "Negative self-talk lowers confidence. Practice positive affirmations.",
+            "Uncontrolled emotions cause stress. Learn emotional regulation techniques.",
+            "Lack of breaks reduces productivity. Take mental breaks during work.",
+            "Overexposure to news increases stress. Limit consumption.",
+            "Lack of exercise affects mood. Stay physically active for mental health.",
+            "Poor diet affects brain function. Eat balanced meals for mental clarity.",
+            "Dehydration affects mood. Drink enough water daily.",
+            "Ignoring mental fatigue leads to burnout. Rest when needed.",
+            "Lack of goals causes confusion. Set small, achievable goals.",
+            "Perfectionism increases stress. Accept that not everything needs to be perfect.",
+            "Lack of patience causes frustration. Practice patience in daily life.",
+            "Avoiding social interaction increases anxiety. Engage gradually with others.",
+            "Lack of structure causes chaos. Maintain a simple routine.",
+            "Ignoring mental health signs delays help. Seek support early.",
+            "Lack of learning reduces growth. Keep your mind engaged with new things.",
+            "Holding grudges increases stress. Practice forgiveness for peace of mind.",
+            "Lack of boundaries causes stress. Learn to say no when needed.",
+            "Unrealistic expectations cause disappointment. Set achievable standards.",
+            "Lack of relaxation techniques increases tension. Practice meditation regularly.",
+            "Fear of judgment limits expression. Be confident in yourself.",
+            "Lack of positivity affects mindset. Focus on solutions, not problems.",
+            "Overdependence on others affects confidence. Build self-reliance.",
+            "Ignoring happiness reduces quality of life. Do things that make you happy.",
+            "Lack of self-awareness causes confusion. Reflect on your thoughts regularly.",
+            "Neglecting mental health leads to issues. Prioritize your mind like your body."
+        ];
+
+        // Daily Rotation Logic
+        const daysSinceEpoch = Math.floor(Date.now() / (1000 * 60 * 60 * 24));
+        const index = daysSinceEpoch % 50;
+
+        document.getElementById('orthoTipText').textContent = orthoTips[index];
+        document.getElementById('psyTipText').textContent = psyTips[index];
+
+        // ── STATS COUNTER LOGIC ────────────────────────────────
+        const animateStats = () => {
+            const stats = [
+                { id: 'stat1', target: 5, suffix: '' },
+                { id: 'stat2', target: 1.2, suffix: '' },
+                { id: 'stat3', target: 2, suffix: '' }
+            ];
+
+            stats.forEach(stat => {
+                const el = document.getElementById(stat.id);
+                if (!el) return;
+
+                let current = 0;
+                const increment = stat.target / 50; // 50 steps for the animation
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= stat.target) {
+                        el.textContent = stat.target;
+                        clearInterval(timer);
+                    } else {
+                        el.textContent = current.toFixed(1).replace('.0', '');
+                    }
+                }, 30);
+            });
+        };
+
+        // Trigger stats animation when in view
+        const statsSection = document.querySelector('.stats-row');
+        if (statsSection) {
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    animateStats();
+                    observer.disconnect();
+                }
+            }, { threshold: 0.5 });
+            observer.observe(statsSection);
+        }
+
+        // ── MODAL LOGIC ────────────────────────────────────────
+        const modal = document.getElementById('doctorModal');
+        const closeModal = document.getElementById('closeModal');
+        const doctorCards = document.querySelectorAll('.doctor-card');
+
+        doctorCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const name = card.getAttribute('data-name');
+                const designation = card.getAttribute('data-designation');
+                const edu = card.getAttribute('data-edu');
+                const bio = card.getAttribute('data-bio');
+                const accomp = card.getAttribute('data-accomp');
+                const img = card.querySelector('img').src;
+
+                // Only open if data attributes are present
+                if (!name) return;
+
+                document.getElementById('modalName').textContent = name;
+                document.getElementById('modalDesignation').textContent = designation;
+                document.getElementById('modalEdu').textContent = edu;
+                document.getElementById('modalBio').textContent = bio;
+                document.getElementById('modalAccomp').textContent = accomp;
+                document.getElementById('modalImg').src = img;
+
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        const hideModal = () => {
+            if (modal) modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        };
+
+        if (closeModal) closeModal.addEventListener('click', hideModal);
+        if (modal) modal.addEventListener('click', (e) => {
+            if (e.target === modal) hideModal();
+        });
+    </script>
+
+    <!-- Modal Structure -->
+    <div class="modal-overlay" id="doctorModal">
+        <div class="modal-content">
+            <div class="modal-close" id="closeModal"><i class="fas fa-times"></i></div>
+            <div class="modal-img">
+                <img id="modalImg" src="" alt="Doctor Image">
+            </div>
+            <div class="modal-body">
+                <div class="modal-header">
+                    <div class="designation" id="modalDesignation">Designation</div>
+                    <h2 id="modalName">Doctor Name</h2>
+                </div>
+                <div class="modal-info-section">
+                    <h4>Qualifications</h4>
+                    <p id="modalEdu">Medical Qualifications</p>
+                </div>
+                <div class="modal-info-section">
+                    <h4>About / Biography</h4>
+                    <p id="modalBio">Biography text goes here.</p>
+                </div>
+                <div class="modal-info-section">
+                    <h4>Key Accomplishments</h4>
+                    <p id="modalAccomp">Accomplishments go here.</p>
+                </div>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSd0HlrWv12YT2uSGOnvFrQcfs19ZxNFWs-aTgzjO9y9F5d1mA/viewform?usp=publish-editor"
+                    class="btn-primary" target="_blank" style="margin-top: auto;">Book an Appointment</a>
+            </div>
+        </div>
+    </div>
+    <!-- Floating Action Buttons -->
+    <a href="mailto:cyrilorthofoundation@gmail.com" class="float-btn float-mail" title="Email Us">
+        <i class="fas fa-envelope"></i>
+    </a>
+    <a href="tel:7200008026" class="float-btn float-call" title="Call Us">
+        <i class="fas fa-phone-alt"></i>
+    </a>
+    <a href="https://WA.me/917200008026" class="float-btn float-wa" target="_blank" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</body>
+
+</html>
