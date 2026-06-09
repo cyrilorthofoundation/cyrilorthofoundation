@@ -1012,6 +1012,14 @@
             color: #fff;
         }
 
+        /* ── MOBILE MENU ── */
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            color: #fff;
+            cursor: pointer;
+        }
+
         /* ── RESPONSIVE ──────────────────────────────────────── */
         @media (max-width: 1024px) {
             .quick-links-inner {
@@ -1073,8 +1081,26 @@
                 grid-template-columns: 1fr;
             }
 
+            .menu-toggle {
+                display: block;
+            }
+
             .nav-menu {
-                display: none;
+                position: fixed;
+                top: 100px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 100px);
+                background: #043e49;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 40px;
+                transition: 0.3s;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            }
+
+            .nav-menu.active {
+                left: 0;
             }
 
             .stats-row {
@@ -1498,6 +1524,9 @@
                 <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
                 <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
             </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </nav>
 
@@ -2291,6 +2320,20 @@
     <a href="https://WA.me/917200008026" class="float-btn float-wa" target="_blank" title="Chat on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        if (menuToggle && navMenu) {
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            });
+        }
+    </script>
 </body>
 
 </html>
